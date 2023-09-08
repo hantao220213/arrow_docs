@@ -1,0 +1,20 @@
+一、成本计算基本参数信息
+  1.主要指标信息
+    seq_page_cost (floating point): 磁盘页面读取成本的估计值。默认值为1.0。可以通过外部设置;
+    random_page_cost (floating point): 随机读取的磁盘页的成本估计。默认值为 4.0。
+    cpu_tuple_cost (floating point)： 查询期间处理每一行的成本的估计。默认值为 0.01。
+    cpu_index_tuple_cost (floating point)： 索引扫描期间处理每个索引条目的成本的估计。默认值为 0.005。
+    cpu_operator_cost (floating point)： 查询期间执行的每个运算符或函数的成本的估计。默认值为 0.0025。
+    parallel_setup_cost (floating point)： 启动并行工作进程的成本的估计。默认值为 1000。
+    parallel_tuple_cost (floating point)： 计划程序对将一个元组从并行工作进程传输到另一个进程的成本的估计。默认值为 0.1。
+    min_parallel_table_scan_size (integer)： 并行扫描而必须扫描的最小表数据量。通常为 8kB。默认值为 8MB
+    min_parallel_index_scan_size (integer)： 并行扫描而必须扫描的最小索引数据量。请注意，并行索引扫描通常不会触及整个索引;这是规划人员认为扫描实际会触及的相关页数。通常为 8kB。默认值为 512 KB。
+    effective_cache_size (integer)： 用于单个查询的磁盘缓存的有效大小的假设。这被计入使用指数成本的估计中;值越大，使用索引扫描的可能性越大，值越低，使用顺序扫描的可能性越大。通常为 8kB。默认值为 4M。
+    jit_above_cost (floating point)： 激活 JIT 编译的查询开销。设置此选项可 -1 禁用 JIT 编译。缺省值为 100000 。
+    jit_inline_above_cost (floating point)： JIT 编译尝试内联函数和运算符的查询开销。内联会增加计划时间，但可以提高执行速度。将其设置为小于 jit_above_cost 是没有意义的。将其设置为 -1 禁用内联。缺省值为 500000 。
+    jit_optimize_above_cost (floating point)： 设置查询开销，JIT 编译将应用开销较大的优化。这种优化会增加计划时间，但可以提高执行速度。\
+                                               将此设置为 jit_above_cost 小于 是没有意义的，将其设置为 大于 也不太可能有益 jit_inline_above_cost 。设置此选项可 -1 禁用昂贵的优化。缺省值为 500000 。
+    
+    
+
+    
